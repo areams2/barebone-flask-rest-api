@@ -12,7 +12,7 @@ jsonschema==3.2.0
 MarkupSafe==1.1.1
 mysql==0.0.2
 mysql-connector-python==8.0.21
-mysqlclient==2.0.1
+mysql-client==0.0.1
 protobuf==3.13.0
 PyMySQL==0.10.1
 pyrsistent==0.16.0
