@@ -3,17 +3,17 @@ from sqlalchemy import Table, Column, Integer, Text
 from sqlalchemy.orm import mapper
 from database import metadata, db_session
 
-class BlogPost(object):
+class TeacherCourse(object):
     query = db_session.query_property()
-    def __init__(self, id=None, title=None, post=None):
+    def __init__(self, id=None, course_title=None, teacher_name=None):
         self.id = id
-        self.title = title
-        self.post = post
+        self.course_title = course_title
+        self.teacher_name = teacher_name
 
-blog_posts = Table('blog_posts', metadata,
+teacher_course = Table('teacher_course', metadata,
     Column('id', Integer, primary_key=True),
-    Column('title', Text),
-    Column('post', Text)
+    Column('course_title', Text),
+    Column('teacher_name', Text)
 )
 
-mapper(BlogPost, blog_posts)
+mapper(TeacherCourse, teacher_course)

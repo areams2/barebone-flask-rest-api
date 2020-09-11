@@ -2,7 +2,7 @@
 from sqlalchemy import create_engine, MetaData
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-engine = create_engine('postgres://your_username:your_password@your_rds_subdomain.rds.amazonaws.com/your_database', convert_unicode=True)
+engine = create_engine('mysql://admin:qk9U2jswyDT3KNDY@sb-koru-flask.cqic4eehbwsk.us-east-1.rds.amazonaws.com/koru_test', convert_unicode=True)
 metadata = MetaData()
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,

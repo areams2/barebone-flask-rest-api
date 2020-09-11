@@ -2,13 +2,13 @@
 from flask import Flask
 from flask_restplus import Resource, Api, fields
 from database import db_session
-from models import BlogPost
+from models import TeacherCourse
 
 application = Flask(__name__)
 api = Api(application,
           version='0.1',
-          title='Our sample API',
-          description='This is our sample API',
+          title='Koru Mindfulness API',
+          description='Smashing Boxes Koru Mindfulness API',
 )
 
 @api.route('/hello')
@@ -16,16 +16,18 @@ class HelloWorld(Resource):
     def get(self):
         return {'hello': 'world'}
 
-@api.route('/blog_posts')
-class BlogPosts(Resource):
+@api.route('/teacher_course')
+class TeacherCourse(Resource):
     model = api.model('Model', {
         'id': fields.Integer,
-        'title': fields.String,
-        'post': fields.String,
+        'course_title': fields.String,
+        'teacher_name': fields.String,
+         ##add more fields here
     })
     @api.marshal_with(model, envelope='resource')
     def get(self, **kwargs):
-        return BlogPost.query.all()
+        from models import TeacherCourse
+        return TeacherCourse.query.all()
 
 @application.teardown_appcontext
 def shutdown_session(exception=None):
